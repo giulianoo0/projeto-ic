@@ -1,0 +1,106 @@
+.form__wrapper {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.form__wrapper > h1 {
+  animation: hero__landing__wght__animation 0.6s ease-in-out forwards;
+  font-size: 32px;
+}
+
+.fancy__input__wrapper {
+  position: relative;
+  margin-top: 1.5rem;
+}
+
+.fancy__button {
+  display: flex;
+  position: absolute;
+  z-index: 30;
+  top: 50%;
+  transform: translateY(-80%);
+  opacity: 0;
+  right: 1rem;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: 1px solid #202020;
+  border-radius: 8px;
+  font-size: 12px;
+  padding: 0.25rem 0.75rem;
+  backdrop-filter: blur(4px);
+}
+
+.fancy__input:not(:placeholder-shown) ~ .fancy__button {
+  transform: translateY(-50%);
+  opacity: 1;
+}
+
+.fancy__input {
+  outline: none;
+  border: none;
+  z-index: 20;
+  position: relative;
+  border-radius: 8px;
+  padding-left: 1rem;
+  padding-right: 6rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background: linear-gradient(to bottom, black, 75%, rgba(0, 0, 0, 0.6));
+  width: 24rem;
+  height: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.fancy__input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.fancy__input__wrapper:after {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  content: "";
+  position: absolute;
+  width: 101%;
+  height: 101%;
+  border-radius: 8px;
+  filter: blur(4px);
+  background-size: 200% 200%;
+  animation: fancy__input__gradient__animation 3s linear infinite;
+  background-image: linear-gradient(
+    to right,
+    rgb(236, 72, 153),
+    rgb(239, 68, 68),
+    rgb(234, 179, 8)
+  );
+}
+
+@keyframes hero__landing__wght__animation {
+  0% {
+    font-weight: 100;
+  }
+  50% {
+    font-weight: 900;
+  }
+  100% {
+    font-weight: 800;
+  }
+}
+
+@keyframes fancy__input__gradient__animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
