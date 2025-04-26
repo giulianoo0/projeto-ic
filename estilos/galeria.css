@@ -1,3 +1,7 @@
+:root {
+  --prompt-height: 56px;
+}
+
 .imgs__wrapper {
   margin-top: 2rem;
   flex-direction: column;
@@ -16,14 +20,44 @@
 .imgs__grid {
   margin-top: 1.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  justify-content: center;
   width: 100%;
   gap: 1rem 1rem;
+  align-content: center;
 }
 
-.imgs__grid > img {
-  width: 200px;
+.imgs__grid > .item {
+  width: 400px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 0;
+  z-index: 10;
+  border-radius: 12px;
+}
+
+.imgs__grid > .image {
+  position: relative;
+}
+
+.imgs__grid > .item > .prompt {
+  background-color: #202020;
+  border: 1px solid #303030;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: var(--prompt-height) !important;
+  width: 100%;
+  bottom: calc(-1 * var(--prompt-height) - 2px);
+  transition: all 0.4s ease;
+}
+
+.imgs__grid > .item > .prompt > p {
+  padding-left: 1rem;
+}
+
+.imgs__grid > .item:hover > .prompt {
+  bottom: 0;
 }
 
 @keyframes gallery__tittle__animation {
